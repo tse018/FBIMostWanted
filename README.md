@@ -9,7 +9,7 @@ Using FBI Most Wanted Rest-API to showcase
 Responsive and universal design
 
 Stack:
-Vue js
-Rest-API
-Figma for Prototype
+Vue js,
+Rest-API,
+Figma,
 Scrum
