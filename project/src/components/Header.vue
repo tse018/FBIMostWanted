@@ -64,6 +64,11 @@ export default {
 </script>
 
 <style>
+.header {
+   position: fixed;
+   top: 0;
+}
+
 .header__title {
    grid-column: 2 / 6;
    font-size: var(--desktop-title);
