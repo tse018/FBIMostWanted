@@ -66,7 +66,7 @@ export default {
 <style>
 .header__title {
    grid-column: 2 / 6;
-   font-size: 50px;
+   font-size: var(--desktop-title);
    margin-top: -10px;
    text-decoration: none;
    color: blue;
@@ -122,7 +122,8 @@ export default {
 /* Mobile */
 @media screen and (max-width: 600px) {
    .header__title {
-      grid-column: 1;
+      grid-column: span 4;
+      font-size: var(--mobile-title);
    }
 
    .header__menu {
@@ -130,7 +131,7 @@ export default {
    }
 
    .header__searchbar {
-      grid-column: 1;
+      grid-column: span 4;
       margin-top: -30px;
    }
 

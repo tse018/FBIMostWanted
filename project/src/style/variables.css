@@ -1,7 +1,11 @@
 :root {
-	--background: white;
-	--foreground: black;
-	
-	--font-family: "Arial";
-	--font-size: 20px;
+	/* Desktop */
+	--desktop-title: 50px;
+	--desktop-undertitle: 40px;
+	--desktop-body: 30px;
+
+	/* Mobile */
+	--mobile-title: 30px;
+	--mobile-undertitle: 28px;
+	--mobile-body: 24px;
 }
