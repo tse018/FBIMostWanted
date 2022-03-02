@@ -30,7 +30,15 @@ export default {
       },
 
       getDescribtion(state) {
-         return state.wantedList.items[8].describtion;
-      }
+         return state.wantedList.items[8].description;
+      },
+
+      getDetails(state) {
+         return state.wantedList.items[8].details;
+      },
+
+      getImage(state) {
+         return state.wantedList.items[8].images;
+      },
    },
 };

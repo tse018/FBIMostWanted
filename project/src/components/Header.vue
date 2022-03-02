@@ -11,7 +11,7 @@
       <div class="header__searchbar grid__item">
          <input type="text" v-model="input" name="search" class="header__input" />
          <div class="header__search">
-            <Icons :icon="'search'" class="header__search" />
+            <Icons :icon="'search'" />
          </div>
       </div>
 

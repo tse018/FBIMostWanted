@@ -1,8 +1,9 @@
 <template>
-   <article class="article grid">
+   <article class="article">
       <div v-for="element in list">
          {{ element }}
       </div>
+      
    </article>
 </template>
 
@@ -11,6 +12,8 @@ export default {
    data() {
       return {
          list: {},
+         details: '',
+         image: '',
       }
    },
 
@@ -20,19 +23,20 @@ export default {
 
       /* getting the list using getters */
       this.list = this.$store.getters.getCaseOfTheWeek;
-      console.log(this.list)
+      console.log(this.list);
+
+      this.details = this.$store.getters.getDetails;
+      console.log(this.details);
+
+      this.image = this.$store.getters.getImage;
+      console.log(this.image);
    },
-}
+};
 </script>
 
 <style>
 .article {
    margin-top: 150px;
-}
-
-.article__title {
-   grid-column: 5 / 8;
-   font-size: var(--desktop-undertitle);
 }
 
 @media screen and (max-width: 600px) {

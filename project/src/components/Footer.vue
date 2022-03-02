@@ -5,40 +5,40 @@
       </RouterLink>
 
       <!-- Only visible on desktop -->
-      <ul class="footer__items grid">
-         <li class="footer__item grid__item">
+      <ul class="footer__items">
+         <li class="footer__item">
             News
          </li>
 
-         <li class="footer__item grid__item">
+         <li class="footer__item">
             Wanted
          </li>
 
-         <li class="footer__item grid__item">
+         <li class="footer__item">
             Tip
          </li>
 
-         <li class="footer__item grid__item">
+         <li class="footer__item">
             About
          </li>
 
-         <li class="footer__item grid__item">
+         <li class="footer__item">
             Investigate
          </li>
 
-         <li class="footer__item grid__item">
+         <li class="footer__item">
             Services
          </li>
 
-         <li class="footer__item grid__item">
+         <li class="footer__item">
             Resources
          </li>
 
-         <li class="footer__item grid__item">
+         <li class="footer__item">
             Jobs
          </li>
 
-         <li class="footer__item grid__item">
+         <li class="footer__item">
             Contact
          </li>
       </ul>
@@ -95,6 +95,19 @@ export default {
 .footer__logo {
    text-decoration: none;
    color: blue;
+}
+
+.footer__items {
+   display: grid;
+   grid-template-columns: repeat(9, 1fr);
+}
+
+.footer__item {
+   display: grid;
+   grid-template-columns: repeat(9, 1fr);
+   padding: 20px;
+   min-height: 100px;
+   text-align: center;
 }
 
 .footer__elements {
