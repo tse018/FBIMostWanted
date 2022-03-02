@@ -1,8 +1,8 @@
 <template>
    <article class="article grid">
-      <h2 class="article__title grid__item">
-         {{ title }}
-      </h2>
+      <div v-for="element in list">
+         {{ element }}
+      </div>
    </article>
 </template>
 
@@ -10,10 +10,18 @@
 export default {
    data() {
       return {
-         title: 'Case of the week',
+         list: {},
       }
-   }
+   },
 
+   async created() {
+      /* fetching API in the list */
+      this.list = await this.$store.dispatch('fetchFbiApi');
+
+      /* getting the list using getters */
+      this.list = this.$store.getters.getCaseOfTheWeek;
+      console.log(this.list)
+   },
 }
 </script>
 

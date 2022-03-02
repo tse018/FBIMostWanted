@@ -1,7 +1,7 @@
 export default {
    state() {
       return {
-         wantedList: [],
+         wantedList: {},
       };
    },
 
@@ -12,12 +12,11 @@ export default {
    },
 
    actions: {
-      async fetchFbiApi() {
+      async fetchFbiApi(state) {
          const url = 'https://api.fbi.gov/@wanted';
          const response = await fetch(url);
-         const results = await response.json();
-
-         this.wantedList = results;
+         const items = await response.json();
+         state.commit('setWantedList', items);
       }
    },
 
@@ -25,5 +24,13 @@ export default {
       wantedList(state) {
          return state.wantedList;
       },
+
+      getCaseOfTheWeek(state) {
+         return state.wantedList.items[8];
+      },
+
+      getDescribtion(state) {
+         return state.wantedList.items[8].describtion;
+      }
    },
 };

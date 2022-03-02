@@ -15,7 +15,7 @@
          </div>
       </div>
 
-      <ul class="header__elements grid__item">
+      <ul class="header__elements">
          <li class="header__element-instagram">
             <Icons :icon="'instagram'" />
          </li>
@@ -98,30 +98,45 @@ export default {
    margin-left: 400px;
 }
 
+.header__elements {
+   width: 20px;
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+}
+
 /* left side */
 .header__element-instagram {
-   margin: -25px 0 0 -50px;
+   grid-column: 1;
 }
 
 .header__element-linked {
-   margin: -10px 0 0 -50px;
+   grid-column: 1;
+   grid-row: 2;
+   margin-top: -15px;
 }
 
 .header__element-mail {
-   margin: -10px 0 0 -50px;
+   grid-column: 1;
+   grid-row: 3;
+   margin: -15px 0 0 5px;
 }
 
 /* rigth side */
 .header__element-twitter {
-   margin: -108px 0 0 50px;
+   grid-column: 2;
+   margin-top: 6px;
 }
 
 .header__element-facebook {
-   margin: -3px 0 0 50px;
+   grid-column: 2;
+   grid-row: 2;
+   margin-top: -15px;
 }
 
 .header__element-youtube {
-   margin: -13px 0 0 50px;
+   grid-column: 2;
+   grid-row: 3;
+   margin: -15px 0 0 5px;
 }
 
 /* Mobile */
