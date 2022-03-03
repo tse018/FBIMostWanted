@@ -1,30 +1,30 @@
 <template>
-   <div v-for="items in capturedPerson">
-      {{ items }}
-   </div>
+   <section v-for="person in captured">
+      {{ person}}
+   </section>
 </template>
 
 <script>
 export default {
    data() {
       return {
-         capturedPerson: {},
+         captured: [],
       };
    },
 
    async created() {
       /* fetching API into the data  */
-      this.capturedPerson = await this.$store.dispatch('fetchFbiApi');
-      this.capturedPerson = this.$store.getters.getWantedList;
+      this.captured = await this.$store.dispatch('fetchFbiApi');
+      this.captured = this.$store.getters.getWantedList;
 
 
-      const captured = this.capturedPerson.filter((capture) => {
+      const capturedPerson = this.captured.filter((capture) => {
          // return capture.subjects[0];
          //console.log(capture.status === 'captured')
          return capture.status == 'captured';
          });
-         this.capturedPerson = captured;
-         console.log(this.capturedPerson)
+         this.captured = capturedPerson;
+         console.log(this.captured)
    },
 }
 </script>

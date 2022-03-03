@@ -1,16 +1,14 @@
 <template>
-   <article class="article">
-      <div v-for="element in list">
-         <h2>
-            {{ element.subjects[1] }}
-         </h2>
+   <article v-for="element in list" class="article">
+      <h2>
+         {{ element.subjects[1] }}
+      </h2>
 
-         <h2>
-            {{ element.title}}
-         </h2>
+      <h2>
+         {{ element.title }}
+      </h2>
 
-         <img :src="element.images[0].large" :alt="element.images.caption" />
-      </div>
+      <img :src="element.images[0].large" :alt="element.images.caption" />
    </article>
 </template>
 
@@ -29,12 +27,12 @@ export default {
       /* getting the list using getters */
       this.list = this.$store.getters.getWantedList;
 
-      const caseOfTheWeek= this.list.filter((subject) => {
+      const caseOfTheWeek = this.list.filter((subject) => {
          // return subject.subjects === 'Seeking Information';
          // console.log({subjects})
-         return (subject.subjects[1] === 'Case of the Week')
-         });
-         this.list = caseOfTheWeek;
+         return subject.subjects[1] === "Case of the Week";
+      });
+      this.list = caseOfTheWeek;
    },
 };
 </script>
