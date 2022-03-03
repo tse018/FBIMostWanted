@@ -1,9 +1,16 @@
 <template>
    <article class="article">
       <div v-for="element in list">
-         {{ element }}
+         <h2>
+            {{ element.subjects[1] }}
+         </h2>
+
+         <h2>
+            {{ element.title}}
+         </h2>
+
+         <img :src="element.images[0].large" :alt="element.images.caption" />
       </div>
-      
    </article>
 </template>
 
@@ -12,24 +19,22 @@ export default {
    data() {
       return {
          list: {},
-         details: '',
-         image: '',
-      }
+      };
    },
 
    async created() {
       /* fetching API in the list */
-      this.list = await this.$store.dispatch('fetchFbiApi');
+      this.list = await this.$store.dispatch("fetchFbiApi");
 
       /* getting the list using getters */
-      this.list = this.$store.getters.getCaseOfTheWeek;
-      console.log(this.list);
+      this.list = this.$store.getters.getWantedList;
 
-      this.details = this.$store.getters.getDetails;
-      console.log(this.details);
-
-      this.image = this.$store.getters.getImage;
-      console.log(this.image);
+      const caseOfTheWeek= this.list.filter((subject) => {
+         // return subject.subjects === 'Seeking Information';
+         // console.log({subjects})
+         return (subject.subjects[1] === 'Case of the Week')
+         });
+         this.list = caseOfTheWeek;
    },
 };
 </script>
@@ -45,5 +50,4 @@ export default {
       font-size: var(--mobile-undertitle);
    }
 }
-
 </style>

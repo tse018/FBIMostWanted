@@ -1,7 +1,7 @@
-import caseOfTheWeek from "./modules/caseOfTheWeek"
+import fbiDatabase from "./modules/fbiDatabase.js";
 
 export default {
    modules: {
-      caseOfTheWeek
+      fbiDatabase,
    }
 }
