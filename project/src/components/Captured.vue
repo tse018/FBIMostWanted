@@ -1,6 +1,6 @@
 <template>
-   <section v-for="person in captured">
-      {{ person}}
+   <section v-for="person in capturedList">
+      {{ person }}
    </section>
 </template>
 
@@ -8,24 +8,28 @@
 export default {
    data() {
       return {
-         captured: [],
+         capturedList: [],
       };
    },
 
    async created() {
       /* fetching API into the data  */
-      this.captured = await this.$store.dispatch('fetchFbiApi');
-      this.captured = this.$store.getters.getWantedList;
+      this.capturedList = await this.$store.dispatch('fetchFbiApi');
+      this.capturedList = this.$store.getters.getWantedList;
 
+      this.filteringCapturedPeople();
+   },
 
-      const capturedPerson = this.captured.filter((capture) => {
+   methods: {
+      filteringCapturedPeople() {
+         const capturedPerson = this.capturedList.filter((capture) => {
          // return capture.subjects[0];
          //console.log(capture.status === 'captured')
-         return capture.status == 'captured';
+         return capture.status === 'captured';
          });
-         this.captured = capturedPerson;
-         console.log(this.captured)
-   },
+         this.capturedList = capturedPerson;
+      }
+   }
 }
 </script>
 

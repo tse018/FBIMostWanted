@@ -67,6 +67,7 @@ export default {
 .header {
    position: fixed;
    top: 0;
+   background-color: aliceblue;
 }
 
 .header__title {
