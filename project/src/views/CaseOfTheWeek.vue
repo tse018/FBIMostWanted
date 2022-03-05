@@ -1,5 +1,6 @@
 <template>
    <Header />
+   <FilteringCategory />
    <article v-for="element in list" class="article">
       <div class="article__grid-container">
          <h2 class="article__subject-title">
@@ -12,7 +13,7 @@
             <img :src="element.images[0].large" :alt="element.images.caption" class="article__image" />
 
             <figcaption>
-               {{ element.title }}
+               {{ element.description }}
             </figcaption>
          </figure>
       </div>
@@ -28,11 +29,13 @@
 
 <script>
 import Header from "../components/Header.vue";
+import FilteringCategory from '../components/FilteringCategory.vue';
 import Footer from "../components/Footer.vue";
 
 export default {
    components: {
       Header,
+      FilteringCategory,
       Footer,
    },
 

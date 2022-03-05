@@ -1,13 +1,17 @@
 <template>
    <section class="case">
       <article v-for="element in list" class="case__article">
-         <RouterLink :to="{name: 'caseoftheweek', params: {caseoftheweek} }">
-            <h2 class="case__article-subject">
+         <div class="case__article-subject">
+            <h2>
                {{ element.subjects[1] }}
-               <br />
-               {{ element.title }}
             </h2>
-         </RouterLink>
+            
+            <RouterLink :to="{ name: 'caseoftheweek', params: { case_id: element.subjects[1].replaceAll(' ', '-')}}">
+               <h2>
+                  {{ element.title }}
+               </h2>
+            </RouterLink>
+         </div>
 
          <figure class="case__article-hero">
             <img

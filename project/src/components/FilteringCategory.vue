@@ -1,6 +1,5 @@
 <template>
    <nav class="navbar">
-      <!-- Mobile -->
       <select class="navbar__selector" name="select-category" @change="goToPages"> 
          <!-- Placeholder -->
          <option selected="selected" value="null">
@@ -19,7 +18,7 @@ export default {
    data() {
       return {
          category: [],
-         path: '/'
+         path: '/wanted/'
       };
    },
 
@@ -43,7 +42,7 @@ export default {
       },
 
       goToPages(event) {
-         this.$router.push(this.path + event.target.value);
+         this.$router.push(this.path + event.target.value.replaceAll(' ', '-'));
       },
    },
 };
