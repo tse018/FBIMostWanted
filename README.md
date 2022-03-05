@@ -1,4 +1,4 @@
-# FBI Most Wanted
+# FBI Wanted API
 Using FBI Most Wanted Rest-API to showcase
 - Case of The Week
 - Most Wanted
