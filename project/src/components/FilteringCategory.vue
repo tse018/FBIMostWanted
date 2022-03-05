@@ -6,7 +6,7 @@
          <option selected="selected" value="null">
             Select a category you want to see
          </option>
-
+         
          <option :value="item" v-for="(item, index) in category">
             {{ item }}
          </option>

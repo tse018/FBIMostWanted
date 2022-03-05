@@ -1,6 +1,5 @@
 <template>
    <Header />
-
    <article v-for="element in list" class="article">
       <div class="article__grid-container">
          <h2 class="article__subject-title">
@@ -19,6 +18,7 @@
       </div>
 
       <p class="article__details">
+         <!-- replacing all the html tags such as <p></p> and replace with empty string "" -->
          {{ element.details.replace(/<[^>]*>?/gm, "") }}
       </p>
    </article>

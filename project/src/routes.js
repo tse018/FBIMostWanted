@@ -10,7 +10,7 @@ export default [
       { name: 'kidnappingandmissing', path: '/kidnappings and missing persons', component: KidnappingAndMissing },
       { name: 'endangered', path: '/endangered children', component: Endangered },
       { name: 'crimesagainstChildren', path: '/crimes against children', component: CrimesAgainstChildren },
-      { name: 'caseoftheweek', path: '/case of theweek', component: CaseOfTheWeek },
+      { name: 'caseoftheweek', path: '/case of the week', component: CaseOfTheWeek },
       { name: 'vicap', path: '/ViCAP homicides and Sexual Assaults', component: Vicap },
       { name: 'seekinginformation', path: '/seeking information', component: SeekingInformation},
       { name: 'home', path: '/', component:  Home},
