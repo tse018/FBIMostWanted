@@ -152,8 +152,7 @@ export default {
    }
 
    .header__searchbar {
-      grid-column: span 4;
-      margin-top: -30px;
+      display: none;
    }
 
    .header__elements {

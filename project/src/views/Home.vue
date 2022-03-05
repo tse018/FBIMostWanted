@@ -3,30 +3,27 @@
    <FilteringCategory />
    <main>
       <CaseOfTheWeek />
-      <MostWanted />
+      <LatestNews />
       <Captured />
-      <MissingPeople /> 
    </main>
    <Footer />
 </template>
 
 <script>
 import Header from '../components/Header.vue';
-import CaseOfTheWeek from '../components/CaseOfTheWeek.vue';
-import Captured from '../components/Captured.vue';
-import MissingPeople from '../components/MissingPeople.vue';
-import MostWanted from '../components/MostWanted.vue';
 import FilteringCategory from '../components/FilteringCategory.vue';
+import CaseOfTheWeek from '../components/CaseOfTheWeek.vue';
+import LatestNews from '../components/LatestNews.vue';
+import Captured from '../components/Captured.vue';
 import Footer from '../components/Footer.vue';
 
 export default {
    components: {
       Header,
+      FilteringCategory,
       CaseOfTheWeek,
       Captured,
-      MissingPeople,
-      MostWanted,
-      FilteringCategory,
+      LatestNews,
       Footer,
    }
 }

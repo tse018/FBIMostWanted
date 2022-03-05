@@ -1,21 +1,15 @@
 <template>
-   <h2>
-      {{ title }}
-   </h2>
+   <aside class="wanted">
+      <figure v-for="person in wanted" class="wanted__person">
+         <img :src="person.images[0].original" :alt="person.images.caption" class="article__image" />
 
-<div class="wanted">
-   <figure v-for="person in wanted" class="wanted__person">
-      <img :src="person.images[0].original" :alt="person.images.caption" class="article__image" />
-
-      <figcaption class="grid__item">
-         {{ person.title }}
-         {{ person.subjects[0] }}
-      </figcaption>
-   </figure>
-
-
-</div>
-   
+         <figcaption class="grid">
+            {{ person.title }}
+            <br />
+            {{ person.subjects[0] }}
+         </figcaption>
+      </figure>
+   </aside>
 </template>
 
 <script>
@@ -23,7 +17,7 @@ export default {
    data() {
       return {
          wanted: [],
-         title: 'Lastest News '
+         title: "Lastest News",
       };
    },
 
@@ -42,11 +36,12 @@ export default {
          const missingPeople = this.wanted.filter((item) => {
             // return item.subjects[0] === "Seeking Information";
             // console.log(item.subjects[0] === 'Kidnappings and Missing Persons')
-            return item.subjects[0] !== 'Seeking Information' && "Kidnappings and Missing Persons" ;
+            return (
+               item.subjects[0] 
+            );
          });
-         
-         this.wanted = missingPeople
-         console.log(this.wanted)
+
+         this.wanted = missingPeople;
       },
    },
 };
@@ -54,12 +49,11 @@ export default {
 
 <style>
 .wanted {
-   max-width: 100%;
+   width: 50%;
    margin-bottom: 40px;
    display: grid;
    grid-template-columns: repeat(4, 1fr);
    column-gap: 10px;
    row-gap: 10px;
-}
-
+} 
 </style>

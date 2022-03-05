@@ -1,11 +1,16 @@
 <template>
    <nav class="navbar">
-      <select class="contact__input contact__select" name="issues-options">
-				<!-- loops options and render all the issuses and :value to show in values attribute -->
-				<option :value="category" v-for="(category, index) in category">
-					{{ category.subjects[0] }}
-				</option>
-			</select>
+      <!-- Mobile -->
+      <select class="navbar__selector" name="select-category" @change="goToPages"> 
+         <!-- Placeholder -->
+         <option selected="selected" value="null">
+            Select a category you want to see
+         </option>
+
+         <option :value="item" v-for="(item, index) in category">
+            {{ item }}
+         </option>
+      </select>
    </nav>
 </template>
 
@@ -14,6 +19,7 @@ export default {
    data() {
       return {
          category: [],
+         path: '/'
       };
    },
 
@@ -24,18 +30,20 @@ export default {
       /* getting the list using getters */
       this.category = this.$store.getters.getWantedList;
 
-      this.filteringWantedPeople();
+      this.mappingCategories();
    },
 
    methods: {
-      filteringWantedPeople() {
-         let missingPeople = this.category.filter((item) => {
-            // return item.subjects[0] === "Seeking Information";
-            // console.log(item.subjects[0] === 'Kidnappings and Missing Persons')
-            return item.subjects[0] !== "Kidnappings and Missing Persons";
-         });
+      mappingCategories() {
+         const noRepeatingCategory = [
+            ...new Set(this.category.map((category) => category.subjects[0])),
+         ];
+         
+         this.category = noRepeatingCategory;
+      },
 
-         this.category = missingPeople;
+      goToPages(event) {
+         this.$router.push(this.path + event.target.value);
       },
    },
 };

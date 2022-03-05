@@ -1,6 +1,12 @@
 <template>
-   <section v-for="person in capturedList">
-      {{ person }}
+   <section>
+      <h2>
+         {( title )}
+      </h2>
+
+      <article v-for="person in capturedList">
+         {{ person }}
+      </article>
    </section>
 </template>
 
@@ -9,6 +15,7 @@ export default {
    data() {
       return {
          capturedList: [],
+         title: 'Captured',
       };
    },
 
@@ -23,10 +30,9 @@ export default {
    methods: {
       filteringCapturedPeople() {
          const capturedPerson = this.capturedList.filter((capture) => {
-         // return capture.subjects[0];
-         //console.log(capture.status === 'captured')
-         return capture.status === 'captured';
+            return capture.status === 'captured';
          });
+
          this.capturedList = capturedPerson;
       }
    }

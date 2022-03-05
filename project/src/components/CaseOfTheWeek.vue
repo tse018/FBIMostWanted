@@ -1,27 +1,25 @@
 <template>
-   <article v-for="element in list" class="article">
-      <div class="article__grid-container">
-         <h2 class="article__subject-title">
+   <section class="case">
+      <article v-for="element in list" class="case__article">
+         <h2 class="case__article-subject">
             {{ element.subjects[1] }}
-         </h2>
-      </div>
-
-      <div class="article__grid-container">
-         <h2 class="article__case-title">
+            <br />
             {{ element.title }}
          </h2>
-      </div>
+         
+         <figure class="case__article-hero">
+            <img :src="element.images[0].large" :alt="element.images.caption" class="case__article-image" />
 
-      <div class="article__grid-container">
-         <figure class="article__hero-image">
-            <img :src="element.images[0].large" :alt="element.images.caption" class="article__image" />
-            
-            <figcaption class="article__details">
-               {{ element.details.replace(/<[^>]*>?/gm, '') }}
+            <figcaption class="case__article-title">
+               {{ element.description }}
             </figcaption>
          </figure>
-      </div>
-   </article>
+
+         <p class="case__article-details">
+            {{ element.reward_text }}
+         </p>
+      </article>
+   </section>
 </template>
 
 <script>
@@ -44,8 +42,6 @@ export default {
    methods: {
       filteringCaseOfTheWeek() {
          const caseOfTheWeek = this.list.filter((subject) => {
-            // return subject.subjects[0] === "Seeking Information";
-            // console.log({subjects})
             return subject.subjects[1] === "Case of the Week";
          });
 
@@ -56,42 +52,28 @@ export default {
 </script>
 
 <style>
-.article__grid-container {
-   width: 100%;
-   margin-bottom: 10px;
+.case__article {
    display: grid;
-   grid-template-columns: repeat(12, 1fr);
-   column-gap: 10px;
-   row-gap: 10px;
+   grid-template-columns: repeat(2, 1fr);
+   gap: 10px;
+   grid-auto-rows: minmax(100px, auto);
 }
 
-.article__subject-title {
-   grid-column: 6 / 8;
+.case__article-subject {
+   grid-column: 1;
+   grid-row: 1;
 }
 
-.article__case-title {
-   grid-column: 5 / 9;
-   margin-left: 50px;
+.case__article-title {
+   grid-column: 1;
+   grid-row: 1 / 1;
 }
 
-.article__hero-image {
-   grid-column: 2 / 12;
+.case__article-hero {
+   grid-column: 2;
+   grid-row: 1 / 4;
 }
 
 
-.article__image {
-   width: 100%;
-   height: 50%;
-}
 
-.article__details {
-   padding: 20px 0 100px 0;
-}
-
-@media screen and (max-width: 600px) {
-   .article__title {
-      grid-column: span 4;
-      font-size: var(--mobile-undertitle);
-   }
-}
 </style>
