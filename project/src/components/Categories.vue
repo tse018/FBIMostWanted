@@ -33,7 +33,9 @@ export default {
       };
    },
 
-   /* watching the route and when its changed, creates a new created instance */
+   /* watching the route and when its changed,
+      trigger a function whenever a reactive property changes such as routes id 
+   */
    watch: {
       $route() {
          this.filteringCategoriesBasedOnParams();
