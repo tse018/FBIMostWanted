@@ -1,20 +1,18 @@
 <template>
-  <Header />
-  <FilteringCategory />
-  <Footer />
+  <main>
+    <Categories />
+
+  </main>
 </template>
 
 <script>
-import Header             from "../components/Header.vue";
-import FilteringCategory  from "../components/FilteringCategory.vue";
-import Footer             from "../components/Footer.vue";
+import Categories from "../components/Categories.vue";
 
 export default {
   components: {
-    Header,
-    FilteringCategory,
-    Footer,
+    Categories,
   },
+
 };
 </script>
 

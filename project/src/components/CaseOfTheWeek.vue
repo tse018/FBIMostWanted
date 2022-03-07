@@ -14,11 +14,7 @@
          </div>
 
          <figure class="case__article-hero">
-            <img
-               :src="element.images[0].large"
-               :alt="element.images.caption"
-               class="case__article-image"
-            />
+            <img :src="element.images[0].large" :alt="element.images.caption" class="case__article-image" />
 
             <figcaption class="case__article-title">
                {{ element.description }}
@@ -41,20 +37,22 @@ export default {
    },
 
    async created() {
-      /* fetching API in the list */
+      /* fetching the rest-api into the empty list we getting the values from vuex fbiDatabase store */
       this.list = await this.$store.dispatch("fetchFbiApi");
-
       this.list = this.$store.getters.getWantedList;
 
+      /* before created want to only show the filtered list which only contains case of the week */
       this.filteringCaseOfTheWeek();
    },
 
    methods: {
       filteringCaseOfTheWeek() {
+         /* filtering to show only case of the week item from the rest-api */
          const caseOfTheWeek = this.list.filter((subject) => {
-            return subject.subjects[1] === "Case of the Week";
+            return subject.subjects.includes("Case of the Week");
          });
 
+         /* fetching the filtered version of the rest-api to store in the empty list we named in data()  */
          this.list = caseOfTheWeek;
       },
    },

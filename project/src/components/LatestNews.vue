@@ -34,8 +34,6 @@ export default {
    methods: {
       filteringWantedPeople() {
          const missingPeople = this.wanted.filter((item) => {
-            // return item.subjects[0] === "Seeking Information";
-            // console.log(item.subjects[0] === 'Kidnappings and Missing Persons')
             return (
                item.subjects[0] 
             );
