@@ -54,7 +54,6 @@ export default {
             the path we creating will look like this /wanted/Criminal-Enterprise-Investigations
          */
          this.$router.push(this.path + event.target.value.replaceAll(' ', '-'));
-         this.$forceUpdate();  // Notice we have to use a $ here
       },
    },
 };

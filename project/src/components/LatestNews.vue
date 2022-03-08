@@ -1,15 +1,14 @@
 <template>
-   <aside class="wanted">
-      <figure v-for="person in wanted" class="wanted__person">
-         <img :src="person.images[0].original" :alt="person.images.caption" class="article__image" />
-
-         <figcaption class="grid">
-            {{ person.title }}
-            <br />
-            {{ person.subjects[0] }}
-         </figcaption>
-      </figure>
-   </aside>
+   <section class="wanted">
+      <article v-for="person in wanted" class="wanted__article">
+         <figure class="wanted__figure">
+            <img :src="person.images[0].original" :alt="person.images.caption" class="wanted__image" />
+            <figcaption class="wanted__figcaption">
+               {{ person.title + ' ' + person.subjects[0] }}
+            </figcaption>
+         </figure>
+      </article>
+   </section>
 </template>
 
 <script>
@@ -47,11 +46,13 @@ export default {
 
 <style>
 .wanted {
-   width: 50%;
+   width: 100%;
    margin-bottom: 40px;
    display: grid;
    grid-template-columns: repeat(4, 1fr);
    column-gap: 10px;
    row-gap: 10px;
 } 
+
+
 </style>

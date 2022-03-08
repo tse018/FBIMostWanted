@@ -40,10 +40,6 @@
             <Icons :icon="'youtube'" />
          </li>
       </ul>
-
-      <!-- Dark Mode toggle button
-         - Add dark / ligth mode
-      -->
    </header>
 </template>
 
@@ -59,7 +55,7 @@ export default {
       return {
          input: 'what are you looking for?',
       }
-   }
+   },
 }
 </script>
 

@@ -1,11 +1,22 @@
 <template>
-   <section>
-      <h2>
-         {{ title }}
-      </h2>
+   <section class="captured">
+      <article v-for="person in capturedList" class="captured__article">
+         <h2>
+            {{ person.title + ' ' +person.status.toUpperCase() }}
+         </h2>
 
-      <article v-for="person in capturedList">
-         {{ person }}
+      <figure>
+         <img :src="person.images[0].large" :alt="person.title" />
+
+         <figcaption>
+            <!-- makes the first letter UpperCase and Captured to LowerCase -->
+            {{ person.title.charAt().toUpperCase() + person.title.substr(1).toLowerCase() + ' ' + person.status.charAt(0).toUpperCase() + person.status.substr(1)}}
+         </figcaption>
+      </figure>
+
+      <p>
+         {{ person.caution.replace(/<[^>]*>?/gm, "") }} 
+      </p>
       </article>
    </section>
 </template>
@@ -32,17 +43,19 @@ export default {
       /* we are filtering the values from the rest-api to show everyone that has status of captured */
       filteringCapturedPeople() {
          const capturedPerson = this.capturedList.filter((capture) => {
-            return capture.status === 'captured';
+            return capture.status.includes('captured');
          });
 
 
          /* connecting the empty array from data our filtered array now only contains captured people */
          this.capturedList = capturedPerson;
-      }
-   }
+      },
+   },
 }
 </script>
 
 <style>
-
+.captured {
+   margin-bottom: 500px;
+}
 </style>

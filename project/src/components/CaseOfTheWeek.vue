@@ -1,27 +1,27 @@
 <template>
    <section class="case">
       <article v-for="element in list" class="case__article">
-         <div class="case__article-subject">
+         <div class="case__subject">
             <h2>
                {{ element.subjects[1] }}
             </h2>
             
-            <RouterLink :to="{ name: 'caseoftheweek', params: { case_id: element.subjects[1].replaceAll(' ', '-')}}">
-               <h2>
+            <RouterLink :to="{ name: 'caseoftheweek', params: { case_id: element.subjects[1].replaceAll(' ', '-')}}" class="case__routerlink">
+               <h2 class="case__title">
                   {{ element.title }}
                </h2>
             </RouterLink>
          </div>
 
-         <figure class="case__article-hero">
-            <img :src="element.images[0].large" :alt="element.images.caption" class="case__article-image" />
+         <figure class="case__figure">
+            <img :src="element.images[0].large" :alt="element.images.caption" class="case__image" />
 
-            <figcaption class="case__article-title">
+            <figcaption class="case__description">
                {{ element.description }}
             </figcaption>
          </figure>
 
-         <p class="case__article-details">
+         <p class="case__reward">
             {{ element.reward_text }}
          </p>
       </article>
@@ -60,25 +60,24 @@ export default {
 </script>
 
 <style>
+.case {
+   width: 100%;
+   margin-bottom: 40px;
+   display: grid;
+   grid-template-columns: repeat(12, 1fr);
+   column-gap: 10px;
+   row-gap: 10px;
+}
 .case__article {
    display: grid;
-   grid-template-columns: repeat(2, 1fr);
-   gap: 10px;
-   grid-auto-rows: minmax(100px, auto);
+   grid-template-columns: repeat(12, 1fr);
+   padding: 20px;
+   min-height: 100px;
+   text-align: center;
 }
 
-.case__article-subject {
-   grid-column: 1;
-   grid-row: 1;
+.case__routerlink {
+   grid-column: span 6;
 }
 
-.case__article-title {
-   grid-column: 1;
-   grid-row: 1 / 1;
-}
-
-.case__article-hero {
-   grid-column: 2;
-   grid-row: 1 / 4;
-}
 </style>

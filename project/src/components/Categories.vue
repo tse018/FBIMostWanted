@@ -2,9 +2,24 @@
    <Header />
    <FilteringCategory />
 
-   <div v-for="subject in filtered">
-      {{ subject.subjects }}
-   </div>
+   <section>
+      <article v-for="subject in filtered">
+         <h2>
+            {{ subject.title + ' ' + subject.status }}
+         </h2>
+
+         <figure>
+            <img :src="subject.images[0].large" :alt="subject.title" />
+            <figcaption>
+               {{ subject.title + ' ' + subject.description }}
+            </figcaption>
+         </figure>
+
+         <p>
+            {{ subject.details }}
+         </p>
+      </article>
+   </section>
 
    <Footer />
 </template>
@@ -28,8 +43,6 @@ export default {
 
          /* store only the filtered data of subjects */
          filtered: [],
-
-         renderMyComponent: true,
       };
    },
 
@@ -39,7 +52,7 @@ export default {
    watch: {
       $route() {
          this.filteringCategoriesBasedOnParams();
-      }
+      },
    },
 
    async created() {
@@ -56,8 +69,10 @@ export default {
          /* filtering the categories array which contains all the data from rest-api
             to only show the filtered array which only shows the subjects we get from the params 
          */
-         const findCategories = this.categories.filter(item => {
-            return item.subjects.includes(this.$route.params.subjects_id.replaceAll('-', ' '))
+         const findCategories = this.categories.filter((item) => {
+            return item.subjects.includes(
+               this.$route.params.subjects_id.replaceAll("-", " ")
+            );
             //return item.subjects.includes('ViCAP Homicides and Sexual Assaults')
          });
 
