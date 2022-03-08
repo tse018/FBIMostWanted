@@ -1,12 +1,12 @@
 <template>
    <section class="case">
-      <article v-for="element in list" class="case__article">
+      <article v-for="element in list" :key="element.title" class="case__article">
          <div class="case__subject">
             <h2>
                {{ element.subjects[1] }}
             </h2>
             
-            <RouterLink :to="{ name: 'caseoftheweek', params: { case_id: element.subjects[1].replaceAll(' ', '-')}}" class="case__routerlink">
+            <RouterLink :to="{ name: 'caseoftheweek', params: { case_id: element.subjects[0].replaceAll(' ', '-')}}" class="case__routerlink">
                <h2 class="case__title">
                   {{ element.title }}
                </h2>
@@ -48,7 +48,7 @@ export default {
    methods: {
       filteringCaseOfTheWeek() {
          /* filtering to show only case of the week item from the rest-api */
-         const caseOfTheWeek = this.list.filter((subject) => {
+         const caseOfTheWeek = this.list.filter(subject => {
             return subject.subjects.includes("Case of the Week");
          });
 

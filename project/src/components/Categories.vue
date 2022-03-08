@@ -2,21 +2,34 @@
    <Header />
    <FilteringCategory />
 
-   <section>
-      <article v-for="subject in filtered">
+   <section class="category">
+      <article v-for="subject in filtered" :key="subject.title">
          <h2>
-            {{ subject.title + ' ' + subject.status }}
+            {{ subject.title + " " + subject.status }}
          </h2>
 
          <figure>
             <img :src="subject.images[0].large" :alt="subject.title" />
+
             <figcaption>
-               {{ subject.title + ' ' + subject.description }}
+               {{ subject.title + " " + subject.description }}
             </figcaption>
          </figure>
 
-         <p>
-            {{ subject.details }}
+         <!--  
+            some cases have details value:null, so by using v-if / v-else can show
+            all the cases with information depending if it has caution or details values.
+            NOTE: NONE OF THE CASES HAVE BOTH VALUES.
+         -->
+
+         <p v-if="subject.details">
+            <!-- replaces all the <p></p> tags with empty string (removes it completely) -->
+            {{ subject.details.replace(/<[^>]*>?/gm, "")  }}
+         </p>
+
+         <p v-else="subject.caution">
+            <!-- replaces all the <p></p> tags with empty string (removes it completely) -->
+            {{ subject.caution.replace(/<[^>]*>?/gm, "")  }}
          </p>
       </article>
    </section>
@@ -46,9 +59,8 @@ export default {
       };
    },
 
-   /* watching the route and when its changed,
-      trigger a function whenever a reactive property changes such as routes id 
-   */
+   /* watching the route and when its changed trigger a new created instance for the new category params */
+   /* side-effect....when clicking on home router-link, isn´t working  because of watcher */
    watch: {
       $route() {
          this.filteringCategoriesBasedOnParams();
@@ -73,7 +85,6 @@ export default {
             return item.subjects.includes(
                this.$route.params.subjects_id.replaceAll("-", " ")
             );
-            //return item.subjects.includes('ViCAP Homicides and Sexual Assaults')
          });
 
          /* store the findingCategories variable into the empty array called filtered */
@@ -84,4 +95,7 @@ export default {
 </script>
 
 <style>
+.category {
+   padding-bottom: 500px;
+}
 </style>

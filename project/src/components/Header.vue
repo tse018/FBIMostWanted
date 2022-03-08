@@ -4,7 +4,7 @@
          <Icons :icon="'menu'" />
       </div>
 
-      <RouterLink :to="{name: 'home'}" class="header__title grid__item">
+      <RouterLink :to="{ name: 'home'}" class="header__title grid__item">
          FBI Most Wanted
       </RouterLink>
 

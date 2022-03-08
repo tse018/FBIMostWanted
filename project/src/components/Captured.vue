@@ -1,6 +1,6 @@
 <template>
    <section class="captured">
-      <article v-for="person in capturedList" class="captured__article">
+      <article v-for="person in capturedList" :key="person.title" class="captured__article">
          <h2>
             {{ person.title + ' ' +person.status.toUpperCase() }}
          </h2>
@@ -15,7 +15,7 @@
       </figure>
 
       <p>
-         {{ person.caution.replace(/<[^>]*>?/gm, "") }} 
+         {{ person.caution.replaceAll(/<[^>]*>?/gm, "") }} 
       </p>
       </article>
    </section>

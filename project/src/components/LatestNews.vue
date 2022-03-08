@@ -32,13 +32,13 @@ export default {
 
    methods: {
       filteringWantedPeople() {
-         const missingPeople = this.wanted.filter((item) => {
+         const onTheListOfWantedPeople = this.wanted.filter((item) => {
             return (
-               item.subjects[0] 
+               item.subjects[0]
             );
          });
 
-         this.wanted = missingPeople;
+         this.wanted = onTheListOfWantedPeople;
       },
    },
 };
@@ -49,10 +49,11 @@ export default {
    width: 100%;
    margin-bottom: 40px;
    display: grid;
-   grid-template-columns: repeat(4, 1fr);
+   grid-template-columns: repeat(12, 1fr);
    column-gap: 10px;
    row-gap: 10px;
 } 
+
 
 
 </style>
