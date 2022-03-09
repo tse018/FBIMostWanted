@@ -5,7 +5,7 @@
    <section class="category">
       <article v-for="subject in filtered" :key="subject.title">
          <h2>
-            {{ subject.title + " " + subject.status }}
+            {{ subject.title + " " + subject.status.toUpperCase() }}
          </h2>
 
          <figure>
@@ -24,12 +24,12 @@
 
          <p v-if="subject.details">
             <!-- replaces all the <p></p> tags with empty string (removes it completely) -->
-            {{ subject.details.replace(/<[^>]*>?/gm, "")  }}
+            {{ subject.details.replace(/<[^>]*>?/gm, "") }}
          </p>
 
          <p v-else="subject.caution">
             <!-- replaces all the <p></p> tags with empty string (removes it completely) -->
-            {{ subject.caution.replace(/<[^>]*>?/gm, "")  }}
+            {{ subject.caution.replace(/<[^>]*>?/gm, "") }}
          </p>
       </article>
    </section>
@@ -60,7 +60,6 @@ export default {
    },
 
    /* watching the route and when its changed trigger a new created instance for the new category params */
-   /* side-effect....when clicking on home router-link, isn´t working  because of watcher */
    watch: {
       $route() {
          this.filteringCategoriesBasedOnParams();
@@ -82,9 +81,11 @@ export default {
             to only show the filtered array which only shows the subjects we get from the params 
          */
          const findCategories = this.categories.filter((item) => {
-            return item.subjects.includes(
-               this.$route.params.subjects_id.replaceAll("-", " ")
-            );
+            if (this.$route.params.subjects_id) {
+               return item.subjects.includes(
+                  this.$route.params.subjects_id.replaceAll("-", " ")
+               );
+            }
          });
 
          /* store the findingCategories variable into the empty array called filtered */
