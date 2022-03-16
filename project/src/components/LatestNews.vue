@@ -49,10 +49,17 @@ export default {
    width: 100%;
    margin-bottom: 40px;
    display: grid;
-   grid-template-columns: repeat(12, 1fr);
+   grid-template-columns: repeat(4, 1fr);
    column-gap: 10px;
    row-gap: 10px;
 } 
+
+.wanted__image {
+   width: 60%;
+   height: 60%;
+}
+
+
 
 
 

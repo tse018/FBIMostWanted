@@ -27,7 +27,7 @@
             {{ subject.details.replace(/<[^>]*>?/gm, "") }}
          </p>
 
-         <p v-else="subject.caution">
+         <p v-else-if="subject.caution">
             <!-- replaces all the <p></p> tags with empty string (removes it completely) -->
             {{ subject.caution.replace(/<[^>]*>?/gm, "") }}
          </p>
@@ -95,8 +95,13 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .category {
    padding-bottom: 500px;
+}
+
+img {
+   width: 30%;
+   height: 60%;
 }
 </style>

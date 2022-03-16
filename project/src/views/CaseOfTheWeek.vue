@@ -17,11 +17,6 @@
             </figcaption>
          </figure>
       </div>
-
-      <p class="article__details">
-         <!-- replacing all the html tags such as <p></p> and replace with empty string "" -->
-         {{ element.details.replace(/<[^>]*>?/gm, "") }}
-      </p>
    </article>
 
    <Footer />

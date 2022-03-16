@@ -2,15 +2,17 @@
    <section class="captured">
       <article v-for="person in capturedList" :key="person.title" class="captured__article">
          <h2>
-            {{ person.title + ' ' +person.status.toUpperCase() }}
+            {{ person.title }}
+            <br />
+            <!-- Modifing the text so the first string is in upperCase -->
+            {{ status + person.status.charAt().toUpperCase() + person.status.substr(1).toLowerCase() }}
          </h2>
 
       <figure>
          <img :src="person.images[0].large" :alt="person.title" />
 
          <figcaption>
-            <!-- makes the first letter UpperCase and Captured to LowerCase -->
-            {{ person.title.charAt().toUpperCase() + person.title.substr(1).toLowerCase() + ' ' + person.status.charAt(0).toUpperCase() + person.status.substr(1)}}
+            {{ person.title.charAt().toUpperCase() + person.title.substr(1).toLowerCase() + ' ' + person.status}}
          </figcaption>
       </figure>
 
@@ -27,6 +29,7 @@ export default {
       return {
          capturedList: [],
          title: 'Captured',
+         status: 'Status: '
       };
    },
 
@@ -54,8 +57,17 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .captured {
    margin-bottom: 500px;
+}
+
+figcaption {
+   font-style: italic;
+}
+
+img {
+   width: 30%;
+   height: 70%;
 }
 </style>

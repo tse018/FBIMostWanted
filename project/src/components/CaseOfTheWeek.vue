@@ -59,7 +59,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .case {
    width: 100%;
    margin-bottom: 40px;
@@ -80,4 +80,8 @@ export default {
    grid-column: span 6;
 }
 
+img {
+   width: 100%;
+   height: 50%;
+}
 </style>
