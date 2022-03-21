@@ -60,7 +60,9 @@ export default {
 </script>
 
 <style>
-.navbar {
-   margin-top: 100px;
+.navbar__selector {
+   width: 550px;
+   border-radius: 40px;
+   padding-left: 15px;
 }
 </style>

@@ -65,3 +65,23 @@ span {
    display: inline;
 }
 
+
+a:link, a:visited {
+   text-decoration: none;
+}
+
+/* Vue routing transition */
+.animation-enter-active,
+.animation-leave-active {
+   transition: transform 1s;
+}
+
+.animation-enter,
+.animation-leave-to {
+   transform: translateX(100%);
+}
+
+.animation-enter-to,
+.animation-leave {
+   transform: translateX(-100%);
+}

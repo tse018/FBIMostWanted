@@ -60,28 +60,31 @@ export default {
 </script>
 
 <style scoped>
+
 .case {
-   width: 100%;
-   margin-bottom: 40px;
-   display: grid;
-   grid-template-columns: repeat(12, 1fr);
-   column-gap: 10px;
-   row-gap: 10px;
+   border: 2px solid red;
+   margin: 50px 130px;
 }
+
 .case__article {
-   display: grid;
-   grid-template-columns: repeat(12, 1fr);
-   padding: 20px;
-   min-height: 100px;
-   text-align: center;
+   display: flex;
 }
 
-.case__routerlink {
-   grid-column: span 6;
-}
-
-img {
+.case__subject {
    width: 100%;
-   height: 50%;
+   border: 2px solid red;
+   font-weight: bolder;
 }
+
+.case__title {
+   font-weight: normal;
+   color: black;
+}
+
+
+.case__image {
+   display: flex;
+}
+
+
 </style>
