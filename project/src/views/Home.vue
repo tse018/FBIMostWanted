@@ -26,6 +26,10 @@ export default {
       LatestNews,
       Footer,
    },
+
+   created() {
+      
+   }
 }
 </script>
 

@@ -29,7 +29,7 @@ export default {
       return {
          capturedList: [],
          title: 'Captured',
-         status: 'Status: '
+         status: 'Status:',
       };
    },
 
@@ -48,7 +48,6 @@ export default {
          const capturedPerson = this.capturedList.filter((capture) => {
             return capture.status.includes('captured');
          });
-
 
          /* connecting the empty array from data our filtered array now only contains captured people */
          this.capturedList = capturedPerson;

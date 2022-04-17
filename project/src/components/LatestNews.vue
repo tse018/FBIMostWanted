@@ -34,7 +34,7 @@ export default {
 
    computed: {
       slides() {
-         this.wanted;
+         return this.wanted;
       },
 
       currentSlide() {
@@ -87,9 +87,4 @@ export default {
    width: 60%;
    height: 60%;
 }
-
-
-
-
-
 </style>
