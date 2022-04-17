@@ -13,3 +13,6 @@ Vue js,
 Rest-API,
 Figma,
 Scrum
+
+
+Netlify: https://fbiwantedapi.netlify.app/
