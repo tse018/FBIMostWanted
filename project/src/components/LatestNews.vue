@@ -1,10 +1,10 @@
 <template>
    <section class="wanted">
       <article v-for="person in wanted" class="wanted__article">
-         <figure class="wanted__figure" :data-text-after="person.title">
+         <figure class="wanted__figure">
             <img :src="person.images[0].original" :alt="person.images.caption" class="wanted__image" />
             <figcaption class="wanted__figcaption">
-               {{ person.title + ' ' + person.subjects[0] }}
+               {{ person.title + person.subjects[0] }}
             </figcaption>
          </figure>
       </article>
@@ -56,18 +56,6 @@ export default {
 
          this.wanted = onTheListOfWantedPeople;
       }, 
-
-      goToIndex(index) {
-         this.index = index;
-      },
-
-      next() {
-         if (this.index === thus.slideLength - 1) {
-            this.index = 0;
-         } else {
-            this.index++;
-         };
-      },
    },
 };
 </script>

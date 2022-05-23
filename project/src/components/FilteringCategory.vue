@@ -22,7 +22,7 @@ export default {
    data() {
       return {
          category: [],
-         path: '/wanted/'
+         path: '/wanted/category/'
       };
    },
 

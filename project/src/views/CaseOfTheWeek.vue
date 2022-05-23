@@ -1,6 +1,4 @@
 <template>
-   <Header />
-   <FilteringCategory />
    <main>
       <section>
          <article v-for="element in list" class="article">
@@ -26,22 +24,11 @@
          </article>
       </section>
    </main>
-
-   <Footer />
 </template>
 
 <script>
-import Header from "../components/Header.vue";
-import FilteringCategory from "../components/FilteringCategory.vue";
-import Footer from "../components/Footer.vue";
 
 export default {
-   components: {
-      Header,
-      FilteringCategory,
-      Footer,
-   },
-
    data() {
       return {
          list: [],

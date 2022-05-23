@@ -1,7 +1,4 @@
 <template>
-   <Header />
-   <FilteringCategory />
-
    <section class="category">
       <article v-for="subject in filtered" :key="subject.title">
          <h2>
@@ -33,22 +30,10 @@
          </p>
       </article>
    </section>
-
-   <Footer />
 </template>
 
 <script>
-import Header from "../components/Header.vue";
-import FilteringCategory from "../components/FilteringCategory.vue";
-import Footer from "../components/Footer.vue";
-
 export default {
-   components: {
-      Header,
-      FilteringCategory,
-      Footer,
-   },
-
    data() {
       return {
          /* store all the data from rest-api */

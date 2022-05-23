@@ -6,7 +6,7 @@
                {{ element.subjects[1] }}
             </h2>
             
-            <RouterLink :to="{ name: 'caseoftheweek', params: { case_id: element.subjects[0].replaceAll(' ', '-')}}" class="case__routerlink">
+            <RouterLink :to="{ name: 'caseoftheweek', params: { case_id: element.subjects[0].replaceAll(' ', '-')} }" class="case__routerlink">
                <h2 class="case__title">
                   {{ element.title }}
                </h2>
