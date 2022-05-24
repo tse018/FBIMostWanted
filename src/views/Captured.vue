@@ -100,7 +100,7 @@ export default {
 @media screen and (min-width: 981px) {
    .captured-container {
       height: 80vh;
-      width: 100vw;
+      width: 90vw;
       padding: 0 50px;
       margin: 20px;
       overflow: auto;
