@@ -91,12 +91,4 @@ export default {
 </script>
 
 <style scoped>
-.category {
-   padding-bottom: 500px;
-}
-
-img {
-   width: 30%;
-   height: 60%;
-}
 </style>

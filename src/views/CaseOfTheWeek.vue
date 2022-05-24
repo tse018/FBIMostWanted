@@ -73,36 +73,5 @@ export default {
 </script>
 
 <style scoped> 
-.article__grid-container {
-   margin: 220px 0 -180px 0;
-   width: 100%;
-   display: grid;
-   grid-template-columns: repeat(12, 1fr);
-   column-gap: 10px;
-   row-gap: 10px;
-}
 
-.article__subject-title {
-   grid-column: 6 / 8;
-}
-
-.article__case-title {
-   grid-column: 5 / 9;
-}
-
-.article__hero-image {
-   grid-column: 2 / 12;
-}
-
-.article__image {
-   width: 50%;
-   height: 60%;
-}
-
-@media screen and (max-width: 600px) {
-   .article__title {
-      grid-column: span 4;
-      font-size: var(--mobile-undertitle);
-   }
-}
 </style>
