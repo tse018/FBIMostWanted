@@ -1,35 +1,39 @@
 <template>
-   <section class="captured">
-         <article v-for="person in capturedList" :key="person.title" class="captured__article">
-            <h2>
-               {{ person.title }}
-               <br />
-               <!-- Modifing the text so the first string is in upperCase -->
-               {{ status + person.status.charAt().toUpperCase() + person.status.substr(1).toLowerCase() }}
-            </h2>
+   <section class="captured-container">
+      <article
+         v-for="person in capturedList"
+         :key="person.title"
+         class="captured-container__article-container"
+      >
+         <h2 class="captured-container__title">
+            {{ person.title }}
+            <br />
+            <!-- Modifing the text so the first string is in upperCase and status first letter is always capital -->
+            {{
+               status +
+               person.status.charAt().toUpperCase() +
+               person.status.substr(1).toLowerCase()
+            }}
+         </h2>
 
-            <figure>
-               <img :src="person.images[0].large" :alt="person.title" />
+         <figure class="captured-container__image-container">
+            <img
+               class="captured-container__image"
+               :src="person.images[0].large"
+               :alt="person.title"
+            />
+         </figure>
 
-               <figcaption>
-                  {{
-                     person.title.charAt().toUpperCase() +
-                     person.title.substr(1).toLowerCase() +
-                     " " +
-                     person.status
-                  }}
-               </figcaption>
-            </figure>
-
-            <p>
-               {{ person.caution.replaceAll(/<[^>]*>?/gm, "") }}
-            </p>
-         </article>
+         <p class="captured-container__description">
+            <!-- REGEX for removing <p> tags coming from rest api </p>-->
+            {{ person.caution.replaceAll(/<[^>]*>?/gm, "") }}
+         </p>
+      </article>
    </section>
 </template>
 
 <script>
-import seoMixin from '../mixins/seoMixin.js';
+import seoMixin from "../mixins/seoMixin.js";
 
 export default {
    mixins: [seoMixin],
@@ -51,8 +55,8 @@ export default {
       this.filteringCapturedPeople();
 
       this.metaTags({
-            title: 'Captured',
-         });
+         title: "Captured",
+      });
    },
 
    computed: {
@@ -75,5 +79,40 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+@media screen and (max-width: 980px) {
+   .captured-container {
+      height: 100vh;
+      width: 100vw;
+      padding: 0 50px;
+      margin: 20px;
+   }
+
+   .captured-container__article-container {
+      font-size: 20;
+   }
+
+   img {
+      font-size: 0; /* hiding alt text */
+   }
+}
+
+@media screen and (min-width: 981px) {
+   .captured-container {
+      height: 100vh;
+      width: 100vw;
+      padding: 0 50px;
+      margin: 20px;
+   }
+
+   .captured-container__article-container {
+      padding: 20px 100px;
+      margin: 20px;
+      font-size: 24px;
+   }
+
+   img {
+      font-size: 0; /* hiding alt text */
+   }
+}
 </style>
