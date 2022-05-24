@@ -17,19 +17,3 @@ a:link, a:visited {
 .animation-leave {
    transform: translateX(-100%);
 }
-
-   /* width */
-   ::-webkit-scrollbar {
-      height: 30px;
-   }
-
-   /* Handle */
-   ::-webkit-scrollbar-thumb {
-      background: black;
-      border-radius: 50px;
-   }
-
-   /* Handle on hover */
-   ::-webkit-scrollbar-thumb:hover {
-      background: black;
-}

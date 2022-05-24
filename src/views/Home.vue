@@ -106,13 +106,13 @@ export default {
 
 @media screen and (min-width: 601px) {
    .wanted-container {
-      max-height: 90vh;
+      max-height: 100vh;
       display: flex;
       overflow-y: hidden;
    }
 
    .wanted-list__image-container {
-      max-height: 90vh;
+      max-height: 80vh;
    }
 
    .wanted-list__image {
@@ -125,7 +125,7 @@ export default {
 
    .wanted-list__image-description {
       position: relative;
-      bottom: 78%;
+      bottom: 98%;
       text-align: center;
       opacity: 0.8;
       z-index: 100;

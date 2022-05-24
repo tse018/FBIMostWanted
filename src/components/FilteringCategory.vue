@@ -102,13 +102,15 @@ export default {
    .navbar-container {
       display: flex;
       width: 50%;
-      justify-content: end;
-      margin-left: 50px;
+      justify-content: center;
+      margin: auto;
+      padding: 20px;
+      
    }
 
    .navbar-container__selector {
       width: 400px;
-      border-radius: 40px;
+      border-radius: 20px;
       display: flex;
       font-size: 20px;
       text-align: center;
