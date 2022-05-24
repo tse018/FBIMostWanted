@@ -1,27 +1,23 @@
 <template>
-   <nav class="navbar">
+   <nav class="navbar-container">
       <!-- v-bind @change to trigger when user changes the drop down menu
             which trigger goToPages function from methods
       -->
-      <select
-         class="navbar__selector"
-         name="select-category"
-         @change="goToPages"
-      >
+      <select class="navbar-container__selector" name="select-category" @change="goToPages">
          <!-- Placeholder for user to see what this dropdown is about -->
-         <option selected="selected" value="">
+         <option class="navbar-container__options" selected="selected" value="">
             Select a Category
          </option>
-         <!-- loops to show all the subjects from rest-api  -->
-         <option :value="item" v-for="(item, index) in category" :key="item">
+
+         <option class="navbar-container__options" :value="item" v-for="(item, index) in category" :key="item">
             {{ item }}
          </option>
 
-         <option value="captured">
+         <option class="navbar-container__options" value="captured">
             Captured
          </option>
 
-         <option value="case of the week">
+         <option class="navbar-container__options" value="case of the week">
             Case Of The Week
          </option>
       </select>
@@ -34,7 +30,7 @@ export default {
    data() {
       return {
          category: [],
-         path: '/wanted/category/'
+         path: '/category/'
       };
    },
 
@@ -50,7 +46,7 @@ export default {
    },
 
    methods: {
-      /* creating a new list of subjects with only 1 of each catergories */
+      /* using new Set for creating a new list of subjects with only 1 of each catergories */
       mappingCategories() {
          const noRepeatingCategory = [
             ...new Set(this.category.map(category => category.subjects[0])),
@@ -72,9 +68,54 @@ export default {
 </script>
 
 <style scoped>
-.navbar__selector {
-   width: 550px;
-   border-radius: 40px;
-   padding-left: 15px;
+@media screen and (max-width: 600px) {
+   .navbar-container {
+      display: flex;
+      justify-content: center;
+   }
+
+   .navbar-container__selector {
+      width: 300px;
+      border-radius: 40px;
+      display: flex;
+      font-size: 20px;
+      text-align: center;
+   }
 }
+
+@media screen and (min-width: 601px) {
+   .navbar-container {
+      display: flex;
+      justify-content: center;
+   }
+
+   .navbar-container__selector {
+      width: 300px;
+      border-radius: 40px;
+      display: flex;
+      font-size: 20px;
+      text-align: center;
+   }
+}
+
+@media screen and (min-width: 901px) {
+   .navbar-container {
+      display: flex;
+      width: 50%;
+      justify-content: end;
+      margin-left: 50px;
+   }
+
+   .navbar-container__selector {
+      width: 400px;
+      border-radius: 40px;
+      display: flex;
+      font-size: 20px;
+      text-align: center;
+      margin: 20px;
+      font-size: 24px;
+   }
+}
+
+
 </style>

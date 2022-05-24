@@ -1,12 +1,10 @@
 <template>
-   <header class="header grid">
-      <RouterLink :to="{ name: 'home' }" class="header__title grid__item">
+   <header class="header-container">
+      <RouterLink class="header-container__link" :to="{ name: 'home' }">
          FBI Most Wanted
       </RouterLink>
 
-      <div class="header__searchbar grid__item">
-         <FilteringCategory />
-      </div>
+      <FilteringCategory />
    </header>
 </template>
 
@@ -21,33 +19,50 @@ export default {
 </script>
 
 <style scoped>
-.header {
-   position: fixed;
-   top: 0;
-   background-color: aliceblue;
-   z-index: 100;
-}
-
-.header__title {
-   grid-column: 2 / 6;
-   font-size: var(--desktop-title);
-   margin-top: -10px;
-   text-decoration: none;
-   color: blue;
-}
-
-.header__searchbar {
-   grid-column: 7 / 11;
-}
-
 /* Mobile */
 @media screen and (max-width: 600px) {
-   .header__title {
-      grid-column: span 4;
-      font-size: var(--mobile-title);
+   .header-container {
+      display: flex;
+      flex-direction: column;
+      background-color: aliceblue;
+      height: 100px;
    }
-   .header__searchbar {
-      display: none;
+
+   .header-container__link {
+      margin: auto;
+      text-decoration: none;
+      font-size: 40px;
+   }
+}
+
+@media screen and (min-width: 601px) {
+   .header-container {
+      display: flex;
+      flex-direction: column;
+      background-color: aliceblue;
+      height: 100px;
+   }
+
+   .header-container__link {
+      margin: auto;
+      text-decoration: none;
+      font-size: 40px;
+   }
+}
+
+@media screen and (min-width: 901px) {
+   .header-container {
+      display: flex;
+      flex-direction: row;
+      height: 100px;
+      background-color: aliceblue;
+   }
+
+   .header-container__link {
+      font-size: 40px;
+      display: flex;
+      justify-content: left;
+      margin: 20px 0 0 100px;
    }
 }
 </style>

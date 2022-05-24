@@ -1,84 +1,31 @@
 <template>
-   <footer class="footer grid">
-      <RouterLink :to="{name: 'home'}" class="footer__logo grid__item">
-         FBI
-      </RouterLink>
-
-   <span>
-      This is only for FBI-API purpose and nothing else.
-   </span>
+   <footer class="footer-container">
+      <p class="footer-container__content">
+         Built by Vue.js, Vuex, Router & FBI REST-API
+      </p>
    </footer>
 </template>
 
-<script>
-</script>
-
-<style scoped>
-.footer {
+<style>
+.footer-container {
    position: fixed;
-   top: 90vh;
-   right: 0;
-   background-color: ghostwhite;
+   bottom: 0;
+   width: 100%;
+   height: 60px;
+   background: whitesmoke;
    z-index: 100;
 }
 
-.footer__logo {
-   text-decoration: none;
-   color: blue;
-}
-
-.footer__items {
-   display: grid;
-   grid-template-columns: repeat(9, 1fr);
-}
-
-.footer__item {
-   display: grid;
-   grid-template-columns: repeat(9, 1fr);
-   padding: 20px;
-   min-height: 100px;
+.footer-container__content {
+   margin-top: 15px;
    text-align: center;
+   color: black;
+   font-size: 20px;
 }
 
-.footer__elements {
-   display: none;
-}
-
-.footer__menu {
-   display: none;
-}
-
-/* Mobile */
-@media screen and (max-width: 600px) {
-   .footer {
-      background-color: ghostwhite;
-      position: fixed;
-      top: 90vh;
-      height: 80px;
-   }
-   
-   .footer__logo {
-      text-decoration: none;
-      color: blue;
-   }
-
-   .footer__items {
-      display: none;
-   }
-
-   .footer__elements {
-      display: flex;
-      margin-left: -20px;
-      grid-column: 2 / 4;
-   }
-
-   .footer__element {
-      margin: 5px;
-   }
-
-   .footer__menu {
-      margin: -20px 0 0 20px;
-      display: block;
+@media screen and (min-width: 981px) and (max-width: 1200px) {
+   .footer-container__content {
+      font-size: 20px;
    }
 }
 </style>

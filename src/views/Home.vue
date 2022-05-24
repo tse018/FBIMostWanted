@@ -1,8 +1,21 @@
 <template>
-   <main class="wanted-container" ref="scroll-container" @mousewheel="horizontalScrolling">
+   <main
+      class="wanted-container"
+      ref="scroll-container"
+      @mousewheel="horizontalScrolling"
+   >
       <figure v-for="person in wanted" class="wanted-list__image-container">
-         <img :src="person.images[0].original" :alt="'image of ' + person.title + ' and wanted for ' + person.subjects[0]" class="wanted-list__image" />
-   
+         <img
+            :src="person.images[0].original"
+            :alt="
+               'image of ' +
+               person.title +
+               ' and wanted for ' +
+               person.subjects[0]
+            "
+            class="wanted-list__image"
+         />
+
          <figcaption class="wanted-list__image-description">
             CASE: {{ person.title }}
             <br />
@@ -13,7 +26,7 @@
 </template>
 
 <script>
-import seoMixin from '../mixins/seoMixin.js';
+import seoMixin from "../mixins/seoMixin.js";
 
 export default {
    mixins: [seoMixin],
@@ -34,8 +47,8 @@ export default {
       this.filteringWantedPeople();
 
       this.metaTags({
-            title: 'FBI Most Wanted',
-         });
+         title: "FBI Most Wanted",
+      });
    },
 
    computed: {
@@ -45,52 +58,81 @@ export default {
          scrollContainer.addEventListener("wheel", (evt) => {
             evt.preventDefault();
             scrollContainer.scrollLeft += evt.deltaY;
-         }); 
+         });
       },
-   }, 
+   },
 
    methods: {
       filteringWantedPeople() {
          const onTheListOfWantedPeople = this.wanted.filter((item) => {
-            return (
-               item.subjects[0]
-            );
+            return item.subjects[0];
          });
 
          this.wanted = onTheListOfWantedPeople;
-      }, 
+      },
    },
 };
 </script>
 
 <style scoped>
-.wanted-container {
-   max-height: 90vh;
-   display: flex;
-   overflow-y: hidden;
+@media screen and (max-width: 600px) {
+   .wanted-container {
+      display: grid;
+   }
+
+   .wanted-list__image-container {
+      max-height: 50%;
+   }
+
+   .wanted-list__image {
+      width: 50vh;
+      height: 50vh;
+      padding: 20px;
+      margin: 20px;
+   }
+
+   .wanted-list__image-description {
+      position: relative;
+      bottom: 40%;
+      text-align: center;
+      opacity: 0.8;
+      z-index: 100;
+      background-color: whitesmoke;
+      color: black;
+      margin: 0 5%;
+      font-size: 18px;
+   }
 }
 
-.wanted-list__image-container {
-   max-height: 90vh;
-}
+@media screen and (min-width: 601px) {
+   .wanted-container {
+      max-height: 90vh;
+      display: flex;
+      overflow-y: hidden;
+   }
 
-.wanted-list__image {
-   width: 60vh;
-   margin: 100px 20px 0 20px;
-   padding: 20px 20px 0px;
-   height: 70vh;
-   font-size: 0; /* hiding alt text / image border when images isn´t there */
-}
+   .wanted-list__image-container {
+      max-height: 90vh;
+   }
 
-.wanted-list__image-description {
-   position: relative;
-   bottom: 78%;
-   text-align: center;
-   opacity: 0.8;
-   z-index: 100;
-   background-color: whitesmoke;
-   color: black;
-   margin: 0 5%;
-   font-size: 25px;
+   .wanted-list__image {
+      width: 60vh;
+      margin: 0 20px;
+      padding: 20px 20px 0px;
+      height: 80vh;
+      font-size: 0; /* hiding alt text / image border when images isn´t there */
+   }
+
+   .wanted-list__image-description {
+      position: relative;
+      bottom: 78%;
+      text-align: center;
+      opacity: 0.8;
+      z-index: 100;
+      background-color: whitesmoke;
+      color: black;
+      margin: 0 5%;
+      font-size: 25px;
+   }
 }
 </style>
