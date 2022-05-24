@@ -25,6 +25,7 @@ export default {
    position: fixed;
    top: 0;
    background-color: aliceblue;
+   z-index: 100;
 }
 
 .header__title {

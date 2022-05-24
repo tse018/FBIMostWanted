@@ -1,39 +1,33 @@
 <template>
    <section class="category">
       <article v-for="subject in filtered" :key="subject.title">
-         <h2>
-            {{ subject.title + " " + subject.status.toUpperCase() }}
-         </h2>
+            <h2 style="padding-top: 100px">
+               {{ subject.title }}
+            </h2>
 
-         <figure>
-            <img :src="subject.images[0].large" :alt="subject.title" />
+            <figure>
+               <img :src="subject.images[0].large" :alt="subject.title" />
 
-            <figcaption>
-               {{ subject.title + " " + subject.description }}
-            </figcaption>
-         </figure>
+               <figcaption>
+                  {{ subject.description }}
+               </figcaption>
+            </figure>
 
-         <!--  
+            <!--  
             some cases have details value:null, so by using v-if / v-else can show
             all the cases with information depending if it has caution or details values.
             NOTE: NONE OF THE CASES HAVE BOTH VALUES.
          -->
-
-         <p v-if="subject.details">
-            <!-- replaces all the <p></p> tags with empty string (removes it completely) -->
-            {{ subject.details.replace(/<[^>]*>?/gm, "") }}
-         </p>
-
-         <p v-else-if="subject.caution">
-            <!-- replaces all the <p></p> tags with empty string (removes it completely) -->
-            {{ subject.caution.replace(/<[^>]*>?/gm, "") }}
-         </p>
       </article>
    </section>
 </template>
 
 <script>
+import seoMixin from "../mixins/seoMixin.js";
+
 export default {
+   mixins: [seoMixin],
+
    data() {
       return {
          /* store all the data from rest-api */
@@ -59,6 +53,7 @@ export default {
       /* before created we want to show the only filtered data based on params to the browser */
       this.filteringCategoriesBasedOnParams();
    },
+
 
    methods: {
       filteringCategoriesBasedOnParams() {

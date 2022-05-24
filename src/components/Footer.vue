@@ -13,12 +13,13 @@
 <script>
 </script>
 
-<style>
+<style scoped>
 .footer {
    position: fixed;
    top: 90vh;
    right: 0;
    background-color: ghostwhite;
+   z-index: 100;
 }
 
 .footer__logo {

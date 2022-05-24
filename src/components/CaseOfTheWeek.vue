@@ -45,6 +45,7 @@ export default {
       this.filteringCaseOfTheWeek();
    },
 
+
    methods: {
       filteringCaseOfTheWeek() {
          /* filtering to show only case of the week item from the rest-api */
@@ -60,7 +61,6 @@ export default {
 </script>
 
 <style scoped>
-
 .case {
    border: 2px solid red;
    margin: 50px 130px;
@@ -80,7 +80,6 @@ export default {
    font-weight: normal;
    color: black;
 }
-
 
 .case__image {
    display: flex;

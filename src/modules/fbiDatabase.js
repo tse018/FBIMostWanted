@@ -2,7 +2,7 @@ export default {
    state() {
       return {
          wantedList: {},
-         error: ''
+         errors: ''
       };
    },
 
@@ -10,17 +10,17 @@ export default {
       setWantedList(state, wantedList) {
          state.wantedList = wantedList;
       },
-      setError(state, error) {
-         state.error = error
+      setError(state, errors) {
+         state.errors = errors;
       },
    },
 
    actions: {
       async fetchFbiApi(state) {
-         const url = 'https://api.fbi.gov/@wanted';
+         const url = 'https://api.fbi.gov/@wanted'
          const response = await fetch(url);
          try {
-            if(response.status >= 200 && response.status < 300) {
+            if(response.status >= 200 && response.status < 300){
                const { items } = await response.json();
                state.commit('setWantedList', items);
             } else {
@@ -41,7 +41,7 @@ export default {
       },
 
       getError(state) {
-         return state.error;
+         return state.errors;
       },
    },
 };

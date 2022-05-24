@@ -3,21 +3,33 @@
       <!-- v-bind @change to trigger when user changes the drop down menu
             which trigger goToPages function from methods
       -->
-      <select class="navbar__selector" name="select-category" @change="goToPages"> 
+      <select
+         class="navbar__selector"
+         name="select-category"
+         @change="goToPages"
+      >
          <!-- Placeholder for user to see what this dropdown is about -->
-         <option selected="selected" value="null">
-            Select a category you want to see
+         <option selected="selected" value="">
+            Select a Category
          </option>
-         
          <!-- loops to show all the subjects from rest-api  -->
-         <option :value="item" v-for="(item, index) in category" :key="item" >
+         <option :value="item" v-for="(item, index) in category" :key="item">
             {{ item }}
+         </option>
+
+         <option value="captured">
+            Captured
+         </option>
+
+         <option value="case of the week">
+            Case Of The Week
          </option>
       </select>
    </nav>
 </template>
 
 <script>
+
 export default {
    data() {
       return {
@@ -43,23 +55,23 @@ export default {
          const noRepeatingCategory = [
             ...new Set(this.category.map(category => category.subjects[0])),
          ];
-         
+
          /* this.category which is empty, will now containt the new mapped array of the subjects */
          this.category = noRepeatingCategory;
       },
 
-       /* getting the argument from dropdown menu */
+       /* getting the event argument from dropdown menu */
       goToPages(event) {
          /* replacing %20 in link with '-' for better search optimalization
             the path we creating will look like this /wanted/Criminal-Enterprise-Investigations
          */
-         this.$router.push(this.path + event.target.value.replaceAll(' ', '-'));
+         this.$router.push(this.path + event.target.value.replaceAll(' ', '-') );
       },
    },
 };
 </script>
 
-<style>
+<style scoped>
 .navbar__selector {
    width: 550px;
    border-radius: 40px;

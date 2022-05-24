@@ -27,8 +27,11 @@
 </template>
 
 <script>
+import seoMixin from '../mixins/seoMixin.js';
 
 export default {
+   mixins: [seoMixin],
+
    data() {
       return {
          list: [],
@@ -42,6 +45,7 @@ export default {
       this.list = this.$store.getters.getWantedList;
 
       this.filteringCaseOfTheWeek();
+
    },
 
    methods: {
@@ -56,7 +60,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped> 
 .article__grid-container {
    margin: 220px 0 -180px 0;
    width: 100%;
