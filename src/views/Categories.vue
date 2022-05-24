@@ -18,6 +18,15 @@
             all the cases with information depending if it has caution or details values.
             NOTE: NONE OF THE CASES HAVE BOTH VALUES.
          -->
+
+         <p v-if="subject.details">
+            {{ subject.details.replace(/<[^>]*>?/gm, "")}}
+         </p>
+
+         <p v-else="subject.caution">
+            {{ subject.caution.replace(/<[^>]*>?/gm, "")}}
+         </p>
+
       </article>
    </section>
 </template>
@@ -42,6 +51,9 @@ export default {
    watch: {
       $route() {
          this.filteringCategoriesBasedOnParams();
+         this.metaTags({
+            title: this.$route.params.subjects_id,
+         });
       },
    },
 
@@ -52,6 +64,9 @@ export default {
 
       /* before created we want to show the only filtered data based on params to the browser */
       this.filteringCategoriesBasedOnParams();
+      this.metaTags({
+            title: this.$route.params.subjects_id,
+         });
    },
 
 

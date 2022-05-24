@@ -13,7 +13,11 @@
 </template>
 
 <script>
+import seoMixin from '../mixins/seoMixin.js';
+
 export default {
+   mixins: [seoMixin],
+
    data() {
       return {
          wanted: [],
@@ -28,6 +32,10 @@ export default {
       this.wanted = this.$store.getters.getWantedList;
 
       this.filteringWantedPeople();
+
+      this.metaTags({
+            title: 'FBI Most Wanted',
+         });
    },
 
    computed: {

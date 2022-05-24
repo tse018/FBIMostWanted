@@ -29,7 +29,11 @@
 </template>
 
 <script>
+import seoMixin from '../mixins/seoMixin.js';
+
 export default {
+   mixins: [seoMixin],
+
    data() {
       return {
          capturedList: [],
@@ -45,6 +49,10 @@ export default {
 
       /* before created we want to show the filtered version of only captured people */
       this.filteringCapturedPeople();
+
+      this.metaTags({
+            title: 'Captured',
+         });
    },
 
    computed: {

@@ -1,8 +1,10 @@
 <template>
    <Header />
-   <transition name="animation">
-      <RouterView :key="$route.path" />
-   </transition>
+   <router-view v-slot="{ Component }">
+      <transition name="animation">
+         <component :is="Component" />
+      </transition>
+   </router-view>
    <Footer />
 </template>
 
@@ -20,6 +22,11 @@ export default {
       Footer
    },
 
+   async created() {
+      this.metaTags({
+         title: 'FBI Most Wanted',
+		});
+   },
 }
 </script>
 

@@ -21,6 +21,14 @@
                   </figcaption>
                </figure>
             </div>
+
+            <p v-if="element.details">
+               {{ element.details.replace(/<[^>]*>?/gm, "")}}
+            </p>
+
+            <p v-else="element.caution">
+               {{ element.caution.replace(/<[^>]*>?/gm, "")}}
+            </p>
          </article>
       </section>
    </main>
@@ -45,6 +53,10 @@ export default {
       this.list = this.$store.getters.getWantedList;
 
       this.filteringCaseOfTheWeek();
+
+      this.metaTags({
+         title: 'Case Of The Week',
+		});
 
    },
 
