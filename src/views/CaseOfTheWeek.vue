@@ -9,7 +9,7 @@
             <img
                :src="element.images[0].large"
                :alt="element.images.caption"
-               class="article__image"
+               class="article-container__content-image"
             />
 
             <figcaption class="article-container__content-details">
@@ -86,7 +86,6 @@ export default {
    .article-container__content-header {
       width: 100%;
       margin: -50px 0 20px 0;
-      font-size: 30px;
       text-align: center;
    }
 
@@ -104,7 +103,6 @@ export default {
 
    .article-container__content-paragraph {
       padding: 20px;
-      font-size: 18px;
    }
 }
 
@@ -124,22 +122,29 @@ export default {
    .article-container__content-header {
       width: 100%;
       margin: -50px 0 20px 0;
-      font-size: 40px;
       text-align: center;
    }
 
    .article-container__content-figure {
       height: 100%;
-      width: max-content;
+      width: 500px;
       padding-bottom: 20px;
       margin-left: 100px;
+   }
+
+   .article-container__content-image {
+      width: 100%;
+      height: 100%;
+   }
+
+   .article-container__content-details {
+      font-size: var(--desktop-figcaption);
    }
 
    .article-container__content-paragraph {
       width: 50%;
       margin: 0 auto;
       padding: 50px;
-      font-size: 28px;
    }
 }
 </style>

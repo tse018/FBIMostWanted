@@ -18,3 +18,39 @@ a:visited {
 .animation-leave {
    transform: translateX(-100%);
 }
+
+@media screen and (max-width: 1200px) {
+   body {
+      font-size: var(--mobile-body);
+   } 
+
+   h1 {
+      font-size: var(--mobile-title);
+   }
+
+   h2 {
+      font-size: var(--mobile-undertitle);
+   }
+
+   figcaption {
+      font-size: var(--mobile-figcaption);
+   }
+}
+
+@media screen and (min-width: 1201px) {
+   body {
+      font-size: var(--desktop-body);
+   } 
+
+   h1 {
+      font-size: var(--desktop-title);
+   }
+
+   h2 {
+      font-size: var(--desktop-undertitle);
+   }
+
+   figcaption {
+      font-size: var(--desktop-figcaption);
+   }
+}

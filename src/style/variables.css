@@ -2,10 +2,12 @@
 	/* Desktop */
 	--desktop-title: 50px;
 	--desktop-undertitle: 40px;
-	--desktop-body: 30px;
+	--desktop-body: 24px;
+	--desktop-figcaption: 20px;
 
 	/* Mobile */
 	--mobile-title: 30px;
 	--mobile-undertitle: 28px;
-	--mobile-body: 24px;
+	--mobile-body: 18px;
+	--mobile-figcaption: 16px;
 }
