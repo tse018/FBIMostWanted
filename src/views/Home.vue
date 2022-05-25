@@ -1,20 +1,7 @@
 <template>
-   <main
-      class="wanted-container"
-      ref="scroll-container"
-      @mousewheel="horizontalScrolling"
-   >
+   <main class="wanted-container" ref="scroll-container" @mousewheel="horizontalScrolling">
       <figure v-for="person in wanted" class="wanted-list__image-container">
-         <img
-            :src="person.images[0].original"
-            :alt="
-               'image of ' +
-               person.title +
-               ' and wanted for ' +
-               person.subjects[0]
-            "
-            class="wanted-list__image"
-         />
+         <img :src="person.images[0].original" :alt=" 'image of ' + person.title + ' and wanted for ' + person.subjects[0]" class="wanted-list__image" />
 
          <figcaption class="wanted-list__image-description">
             CASE: {{ person.title }}
@@ -132,7 +119,6 @@ export default {
       background-color: whitesmoke;
       color: black;
       margin: 0 5%;
-      font-size: 25px;
    }
 }
 </style>

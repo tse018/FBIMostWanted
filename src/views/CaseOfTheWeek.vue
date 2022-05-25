@@ -6,11 +6,7 @@
          </h2>
 
          <figure class="article-container__content-figure">
-            <img
-               :src="element.images[0].large"
-               :alt="element.images.caption"
-               class="article-container__content-image"
-            />
+            <img :src="element.images[0].large" :alt="element.images.caption" class="article-container__content-image" />
 
             <figcaption class="article-container__content-details">
                {{ element.description }}
@@ -22,10 +18,7 @@
             {{ element.details.replace(/<[^>]*>?/gm, "") }}
          </p>
 
-         <p
-            class="article-container__content-paragraph"
-            v-else="element.caution"
-         >
+         <p class="article-container__content-paragraph" v-else="element.caution">
             {{ element.caution.replace(/<[^>]*>?/gm, "") }}
          </p>
       </article>

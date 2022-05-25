@@ -5,19 +5,11 @@
             {{ person.title }}
             <br />
             <!-- Modifing the text so the first string is in upperCase and status first letter is always capital -->
-            {{
-               status +
-               person.status.charAt().toUpperCase() +
-               person.status.substr(1).toLowerCase()
-            }}
+            {{ status + person.status.charAt().toUpperCase() + person.status.substr(1).toLowerCase() }}
          </h2>
 
          <figure class="captured-container__image-container">
-            <img
-               class="captured-container__image"
-               :src="person.images[0].large"
-               :alt="person.title"
-            />
+            <img class="captured-container__image" :src="person.images[0].large" :alt="person.title" />
          </figure>
 
          <p class="captured-container__description">
