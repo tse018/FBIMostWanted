@@ -1,14 +1,14 @@
 <template>
-   <section class="category">
-      <article v-for="subject in filtered" :key="subject.title">
-            <h2 style="padding-top: 100px">
+   <main class="category-container">
+      <article class="category-container__article-container" v-for="subject in filtered" :key="subject.title">
+            <h2 class="category-container__article-header">
                {{ subject.title }}
             </h2>
 
-            <figure>
-               <img :src="subject.images[0].large" :alt="subject.title" />
+            <figure class="category-container__article-figure">
+               <img class="category-container__article-image" :src="subject.images[0].large" :alt="subject.title" />
 
-               <figcaption>
+               <figcaption class="category-container__article-figcaption">
                   {{ subject.description }}
                </figcaption>
             </figure>
@@ -16,19 +16,23 @@
             <!--  
             some cases have details value:null, so by using v-if / v-else can show
             all the cases with information depending if it has caution or details values.
+            When dropdown some categories won´t show up without this v-if / v-else.
             NOTE: NONE OF THE CASES HAVE BOTH VALUES.
          -->
 
-         <p v-if="subject.details">
-            {{ subject.details.replace(/<[^>]*>?/gm, "")}}
-         </p>
+         <template v-if="subject.details">
+            <p class="category-container__article-paragraph">
+               {{ subject.details.replace(/<[^>]*>?/gm, "")}}
+            </p>
+         </template>
 
-         <p v-else="subject.caution">
-            {{ subject.caution.replace(/<[^>]*>?/gm, "")}}
-         </p>
-
+         <template v-else="subject.caution">
+            <p class="category-container__article-paragraph">
+               {{ subject.caution.replace(/<[^>]*>?/gm, "")}}
+            </p>
+         </template>
       </article>
-   </section>
+   </main>
 </template>
 
 <script>
@@ -91,4 +95,79 @@ export default {
 </script>
 
 <style scoped>
+@media screen and (max-width: 1200px) {
+   .category-container {
+      padding: 20px;
+      margin: 20px;
+   }
+
+   .category-container__article-container {
+      padding: 20px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+   }
+
+   .category-container__article-header {
+      width: 100%;
+      font-size: 20px;
+      text-align: center;
+   }
+
+   .category-container__article-figure {
+      height: 100%;
+      width: 500px;
+      padding-bottom: 20px;
+   }
+
+   .category-container__article-image {
+      width: 100%;
+      height: 100%;
+   }
+
+   .category-container__article-paragraph {
+      padding: 20px;
+      font-size: 28px;
+   }
+}
+
+@media screen and (min-width: 1201px) {
+   .category-container {
+      padding: 20px;
+      margin: 20px;
+   }
+
+   .category-container__article-container {
+      padding: 20px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+   }
+
+   .category-container__article-header {
+      width: 100%;
+      font-size: 40px;
+      text-align: center;
+      padding-bottom: 50px;
+   }
+
+   .category-container__article-figure {
+      height: 100%;
+      width: 40vw;
+      padding-bottom: 20px;
+      text-align: center;
+   }
+
+   .category-container__article-image {
+      width: 100%;
+      height: 100%;
+   }
+
+   .category-container__article-paragraph {
+      width: 50%;
+      margin: 0 auto;
+      padding: 50px;
+      font-size: 28px;
+   }
+}
 </style>
