@@ -9,12 +9,13 @@ export default [
       // so decided to redirect users to home instead
       { path: '/category/White-Collar-Crime', redirect: { name: 'home' }},
 
-      // when user pick Select a Category from drop down, will end up on empty path /wanted/category/,
+      // when user pick the first option Select a Category from drop down, will end up on empty path /wanted/category/,
       // so decided to redirect to home page as well
       { path: '/category/', redirect: to => { return { path: '/',  }}},
       { name: 'subjects',           path: '/category/:subjects_id',             component: Categories },
       { name: 'captured',           path: '/category/captured',                 component: Captured},
       { name: 'caseoftheweek',      path: '/category/case-of-the-week',         component: CaseOfTheWeek},
       { name: 'home',               path: '/',                                  component: Home },
+      // everything else will go to this page not found
       { name: 'pagenotfound',       path: '/:pathMatch(.*)*',                   component: PageNotFound },
 ]
