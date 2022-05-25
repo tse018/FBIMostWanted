@@ -5,8 +5,7 @@ Using FBI Most Wanted Rest-API to showcase
 - Captured
 - Drop down menu user can select different categories to read more about the case.  
 - Routing to different Categories and pages using Vue Routing.
-
-Responsive and universal design
+- Responsive and universal design
 
 Stack:
 Vue js,
