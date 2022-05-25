@@ -1,7 +1,7 @@
 <template>
    <footer class="footer-container">
       <p class="footer-container__content">
-         Built by Vue.js, Vuex, Router & FBI REST-API
+         Built in Vue.js, Vuex, Router & FBI REST-API
       </p>
    </footer>
 </template>

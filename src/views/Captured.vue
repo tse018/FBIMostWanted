@@ -1,10 +1,6 @@
 <template>
-   <section class="captured-container">
-      <article
-         v-for="person in capturedList"
-         :key="person.title"
-         class="captured-container__article-container"
-      >
+   <main class="captured-container">
+      <article v-for="person in capturedList" :key="person.title" class="captured-container__article-container">
          <h2 class="captured-container__title">
             {{ person.title }}
             <br />
@@ -29,7 +25,7 @@
             {{ person.caution.replaceAll(/<[^>]*>?/gm, "") }}
          </p>
       </article>
-   </section>
+   </main>
 </template>
 
 <script>
@@ -92,8 +88,8 @@ export default {
       font-size: 20;
    }
 
-   img {
-      font-size: 0; /* hiding alt text */
+   .captured-container__image {
+      padding: 20px;
    }
 }
 
@@ -112,8 +108,8 @@ export default {
       font-size: 24px;
    }
 
-   img {
-      font-size: 0; /* hiding alt text */
+   .captured-container__image {
+      padding: 20px;
    }
 }
 </style>
