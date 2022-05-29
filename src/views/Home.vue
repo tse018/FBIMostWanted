@@ -89,7 +89,7 @@ export default {
       background-color: whitesmoke;
       color: black;
       margin: 0 5%;
-      font-size: 18px;
+      width: 100%;
    }
 }
 

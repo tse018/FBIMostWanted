@@ -75,7 +75,7 @@ export default {
    }
 
    .navbar-container__selector {
-      width: 300px;
+      min-width: 350px;
       border-radius: 40px;
       display: flex;
       font-size: 20px;
@@ -90,7 +90,7 @@ export default {
    }
 
    .navbar-container__selector {
-      width: 300px;
+      min-width: 400px;
       border-radius: 40px;
       display: flex;
       font-size: 20px;
@@ -109,7 +109,7 @@ export default {
    }
 
    .navbar-container__selector {
-      width: 400px;
+      min-width: 400px;
       border-radius: 20px;
       display: flex;
       font-size: 20px;
