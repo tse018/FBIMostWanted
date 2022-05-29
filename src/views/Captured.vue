@@ -70,14 +70,14 @@ export default {
 <style scoped>
 @media screen and (max-width: 980px) {
    .captured-container {
-      height: 100vh;
-      width: 100vw;
-      padding: 0 50px;
+      min-height: 100vh;
+      width: 90vw;
+      padding: 20px;
       margin: 20px;
    }
 
    .captured-container__article-container {
-      font-size: 20;
+      margin-bottom: 20px;
    }
 
    .captured-container__image {
@@ -87,17 +87,14 @@ export default {
 
 @media screen and (min-width: 981px) {
    .captured-container {
-      height: 80vh;
-      width: 90vw;
-      padding: 0 50px;
+      min-height: 100vh;
+      width: 100vw;
       margin: 20px;
-      overflow: auto;
    }
 
    .captured-container__article-container {
       padding: 20px 100px;
       margin: 20px;
-      font-size: 24px;
    }
 
    .captured-container__image {

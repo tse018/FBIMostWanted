@@ -94,7 +94,7 @@ export default {
 </script>
 
 <style scoped>
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 600px) {
    .category-container {
       padding: 20px;
       margin: 20px;
@@ -150,10 +150,9 @@ export default {
    }
 
    .category-container__article-figure {
-      height: 100%;
-      width: 40vw;
+      height: 50vh;
+      width: 20vw;
       padding-bottom: 20px;
-      text-align: center;
    }
 
    .category-container__article-image {
@@ -162,11 +161,9 @@ export default {
    }
 
    .category-container__article-paragraph {
-      width: 50%;
-      margin: 0 auto;
+      width: 50vw;
       padding: 50px;
-      font-size: 28px;
-      width: 50ch;
+      margin-left: 250px;
    }
 }
 </style>

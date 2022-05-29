@@ -89,7 +89,7 @@ export default {
       text-align: center;
    }
 
-   .article__image {
+   .article-container__content-image {
       width: 100%;
       height: 100%;
    }
@@ -108,19 +108,18 @@ export default {
    .article-container__content {
       padding: 20px;
       display: flex;
-      flex-direction: row;
       flex-wrap: wrap;
    }
 
    .article-container__content-header {
       width: 100%;
-      margin: -50px 0 20px 0;
-      text-align: center;
+      margin: -50px 260px 0 0;
+      text-align: end;
    }
 
    .article-container__content-figure {
-      height: 100%;
-      width: 500px;
+      height: 450px;
+      max-width: 400px;
       padding-bottom: 20px;
       margin-left: 100px;
    }
