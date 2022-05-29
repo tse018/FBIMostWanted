@@ -6,8 +6,8 @@
 	--desktop-figcaption: 20px;
 
 	/* Mobile */
-	--mobile-title: 30px;
-	--mobile-undertitle: 28px;
+	--mobile-title: 28px;
+	--mobile-undertitle: 22px;
 	--mobile-body: 18px;
 	--mobile-figcaption: 16px;
 }

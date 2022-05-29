@@ -1,34 +1,34 @@
 <template>
    <main class="category-container">
       <article class="category-container__article-container" v-for="subject in filtered" :key="subject.title">
-            <h2 class="category-container__article-header">
-               {{ subject.title }}
-            </h2>
+         <h2 class="category-container__article-header">
+            {{ subject.title }}
+         </h2>
 
-            <figure class="category-container__article-figure">
-               <img class="category-container__article-image" :src="subject.images[0].large" :alt="subject.title" />
+         <figure class="category-container__article-figure">
+            <img class="category-container__article-image" :src="subject.images[0].large" :alt="subject.title" />
 
-               <figcaption class="category-container__article-figcaption">
-                  {{ subject.description }}
-               </figcaption>
-            </figure>
+            <figcaption class="category-container__article-figcaption">
+               {{ subject.description }}
+            </figcaption>
+         </figure>
 
-            <!--  
-            some cases have details value:null, so by using v-if / v-else can show
-            all the cases with information depending if it has caution or details values.
-            When dropdown some categories won´t show up without this v-if / v-else.
-            NOTE: NONE OF THE CASES HAVE BOTH VALUES.
-         -->
+         <!--  
+               some cases have details value:null, so by using v-if / v-else can show
+               all the cases with information depending if it has caution or details values.
+               When dropdown some categories won´t show up without this v-if / v-else.
+               NOTE: NONE OF THE CASES HAVE BOTH VALUES.
+            -->
 
          <template v-if="subject.details">
             <p class="category-container__article-paragraph">
-               {{ subject.details.replace(/<[^>]*>?/gm, "")}}
+               {{ subject.details.replace(/<[^>]*>?/gm, "") }}
             </p>
          </template>
 
          <template v-else="subject.caution">
             <p class="category-container__article-paragraph">
-               {{ subject.caution.replace(/<[^>]*>?/gm, "")}}
+               {{ subject.caution.replace(/<[^>]*>?/gm, "") }}
             </p>
          </template>
       </article>
@@ -69,10 +69,9 @@ export default {
       /* before created we want to show the only filtered data based on params to the browser */
       this.filteringCategoriesBasedOnParams();
       this.metaTags({
-            title: this.$route.params.subjects_id,
-         });
+         title: this.$route.params.subjects_id,
+      });
    },
-
 
    methods: {
       filteringCategoriesBasedOnParams() {
@@ -110,7 +109,6 @@ export default {
 
    .category-container__article-header {
       width: 100%;
-      font-size: 20px;
       text-align: center;
    }
 
@@ -127,7 +125,7 @@ export default {
 
    .category-container__article-paragraph {
       padding: 20px;
-      font-size: 28px;
+      width: 60ch;
    }
 }
 
@@ -168,6 +166,7 @@ export default {
       margin: 0 auto;
       padding: 50px;
       font-size: 28px;
+      width: 50ch;
    }
 }
 </style>

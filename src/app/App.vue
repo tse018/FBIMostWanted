@@ -22,7 +22,7 @@ export default {
       Footer
    },
 
-   async created() {
+   created() {
       this.metaTags({
          title: 'FBI Most Wanted',
 		});

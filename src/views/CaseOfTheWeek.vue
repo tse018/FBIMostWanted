@@ -135,7 +135,7 @@ export default {
    }
 
    .article-container__content-paragraph {
-      width: 50%;
+      width: 50ch;
       margin: 0 auto;
       padding: 50px;
    }

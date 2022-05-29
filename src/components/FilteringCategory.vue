@@ -61,7 +61,7 @@ export default {
          /* replacing %20 in link with '-' for better search optimalization
             the path we creating will look like this /wanted/Criminal-Enterprise-Investigations
          */
-         this.$router.push(this.path + event.target.value.replaceAll(' ', '-') );
+         this.$router.push('/category/' + event.target.value.replaceAll(' ', '-') );
       },
    },
 };

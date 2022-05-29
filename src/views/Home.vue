@@ -43,8 +43,10 @@ export default {
          const scrollContainer = this.$refs["scroll-container"];
 
          scrollContainer.addEventListener("wheel", (evt) => {
-            evt.preventDefault();
-            scrollContainer.scrollLeft += evt.deltaY;
+            if (window.innerWidth > 600) {
+               evt.preventDefault();
+               scrollContainer.scrollLeft += evt.deltaY;
+            }
          });
       },
    },
