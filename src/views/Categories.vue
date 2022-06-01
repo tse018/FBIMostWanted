@@ -94,76 +94,62 @@ export default {
 </script>
 
 <style scoped>
-@media screen and (max-width: 600px) {
-   .category-container {
-      padding: 20px;
-      margin: 20px;
-   }
+.category-container {
+   padding: 20px;
+   margin: 20px;
+   position: relative;
+}
 
-   .category-container__article-container {
-      padding: 20px;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-   }
+.category-container__article-container {
+   padding: 20px;
+   display: flex;
+   flex-direction: row;
+   width: 100%;
+   margin-top: 50px;
+   padding-bottom: 50px;
+}
 
+.category-container__article-header {
+   width: 100%;
+   position: absolute;
+   margin-top: -60px;
+}
+
+.category-container__article-figure {
+   height: 100%;
+   width: 500px;
+   padding-bottom: 20px;
+}
+
+.category-container__article-image {
+   width: 100%;
+   height: 100%;
+}
+
+.category-container__article-paragraph {
+   padding: 20px;
+   width: 60ch;
+   margin-top: -30px;
+}
+
+@media screen and (min-width: 600px) {
    .category-container__article-header {
+      justify-content: center;
+      display: flex;
       width: 100%;
-      text-align: center;
-   }
-
-   .category-container__article-figure {
-      height: 100%;
-      width: 500px;
-      padding-bottom: 20px;
-   }
-
-   .category-container__article-image {
-      width: 100%;
-      height: 100%;
+      margin-left: 100px;
    }
 
    .category-container__article-paragraph {
-      padding: 20px;
+      display: flex;
       width: 60ch;
    }
 }
 
-@media screen and (min-width: 1201px) {
-   .category-container {
-      padding: 20px;
-      margin: 20px;
-   }
-
-   .category-container__article-container {
-      padding: 20px;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-   }
-
+@media screen and (min-width: 1200px) {
    .category-container__article-header {
-      width: 100%;
-      font-size: 40px;
-      text-align: center;
-      padding-bottom: 50px;
-   }
-
-   .category-container__article-figure {
-      height: 50vh;
-      width: 20vw;
-      padding-bottom: 20px;
-   }
-
-   .category-container__article-image {
-      width: 100%;
-      height: 100%;
-   }
-
-   .category-container__article-paragraph {
-      width: 50vw;
-      padding: 50px;
-      margin-left: 250px;
+      margin: -100px;
+      font-size: 30px;
    }
 }
 </style>

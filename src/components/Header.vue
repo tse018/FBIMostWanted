@@ -1,6 +1,6 @@
 <template>
    <header class="header-container">
-      <RouterLink class="header-container__link" :to="{ name: 'home' }" aria-label="go to home page">
+      <RouterLink class="header-container__link" :to="{ name: 'home' }" aria-label="home page">
          FBI Most Wanted
       </RouterLink>
 

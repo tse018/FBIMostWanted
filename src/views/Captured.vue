@@ -1,5 +1,6 @@
 <template>
    <main class="captured-container">
+      {{ error }}
       <article v-for="person in capturedList" :key="person.title" class="captured-container__article-container">
          <h2 class="captured-container__title">
             {{ person.title }}
