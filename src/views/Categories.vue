@@ -152,4 +152,19 @@ export default {
       font-size: 30px;
    }
 }
+
+@media screen and (min-width: 2000px) {
+   .category-container__article-header {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding-top: 20px;
+      margin-left: 150px;
+   }
+
+   .category-container__article-paragraph {
+      width: 60ch;
+      margin: 0 auto;
+   }
+}
 </style>

@@ -139,4 +139,15 @@ export default {
       padding: 50px;
    }
 }
+
+@media screen and (min-width: 2000px) {
+   .article__container {
+      position: relative;
+   }
+
+   .article-container__content-header {
+      position: absolute;
+      right: 20%;
+   }
+}
 </style>
