@@ -1,7 +1,7 @@
 <template>
    <nav class="navbar-container">
       <!-- v-bind @change to trigger when user changes the drop down menu
-            which trigger goToPages function from methods
+         which trigger goToPages function from methods
       -->
       <select class="navbar-container__selector" name="select-category" @change="goToPages">
          <!-- Placeholder for user to see what this dropdown is about -->
@@ -97,6 +97,7 @@ export default {
       text-align: center;
    }
 }
+
 
 @media screen and (min-width: 901px) {
    .navbar-container {
